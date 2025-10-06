@@ -25,3 +25,18 @@ Then, we can run an example script which imports the franka arm and sets up posi
 ./python.sh standalone_examples/api/omni.isaac.franka/follow_target_with_rmpflow.py
 ```
 
+## Querying Joint Angles
+
+Querying joint angles via python is very simple.
+
+```
+# Get object franka arm object from scene
+my_franka = my_world.scene.get_object(franka_name)
+
+# While the simulation is playing
+while simulation_app.is_running():
+    # Query joint angles
+    joint_positions = my_franka.get_joint_positions()
+    # Print nicely formatted angles (in radians or converted to degrees)
+    print("Joint Angles (radians):", joint_positions)
+```
